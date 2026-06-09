@@ -5,8 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whiskey Business</title>
+    <link rel="icon" href="/icons/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    
+    <div class="page-container">
+        <%- include("./partials/header.ejs") %>
+        <main class="main">
+            <div class="img-container">
+                <h3>Bourbon</h3>
+                <a>
+                    <img src="/images/bourbon.jpg">
+                </a>
+            </div>
+            <div class="img-container">
+                <h3>Scotch</h3>
+                <a>
+                    <img src="/images/scotch.jpg">
+                </a>
+            </div>
+            <div class="img-container">
+                <h3>Other Whiskey</h3>
+                <a>
+                    <img src="/images/whisky.jpg">
+                </a>
+            </div>
+            <div class="img-container">
+                <h3>Agave</h3>
+                <a>
+                    <img src="/images/agave.jpg">
+                </a>
+            </div>
+            <div class="img-container">
+                <h3>Rum</h3>
+                <a>
+                    <img src="/images/rum.jpg">
+                </a>
+            </div>
+            <div class="img-container">
+                <h3>Cognac/Brandy</h3>
+                <a>
+                    <img src="/images/cognac.jpg">
+                </a>
+            </div>
+        </main>
+        <%- include("./partials/footer.ejs") %>
+    </div>
 </body>
 </html>
