@@ -134,6 +134,23 @@ p, h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Category View */
+
+.category-title {
+    display: flex;
+    justify-content: center;
+    font-family: "Sekuya", Arial, sans-serif;
+    color: white;
+    background-color: #2d160e;
+    padding: 5px;
+}
+
+@media (width > 600px) {
+    .category-title {
+        font-size: 1.3rem;
+    }
+}
+
 /* Footer */
 
 .footer {
