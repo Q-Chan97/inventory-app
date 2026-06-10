@@ -1,5 +1,6 @@
 import express from "express";
 import path from "node:path";
+import categoryRouter from "./routers/categoryRouter.js";
 
 const app = express();
 
@@ -15,9 +16,11 @@ app.use(express.static(assetsPath));
 
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/cat", categoryRouter);
+
 app.use("/", (req, res) => {
     res.render("index");
-})
+});
 
 app.listen(PORT, (error) => {
     if (error) throw error;
