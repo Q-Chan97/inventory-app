@@ -22,6 +22,17 @@ app.use("/", (req, res) => {
     res.render("index");
 });
 
+// Unmatched routes
+app.use((req, res) => {
+    res.status(404).render("404Page");
+})
+
+//Error handler
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(err.status || 500).render("404Page");
+})
+
 app.listen(PORT, (error) => {
     if (error) throw error;
     console.log(`Express server listening on port ${PORT}`);
