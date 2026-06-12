@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Item</title>
+    <link rel="icon" href="/icons/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include("./partials/header.ejs") %>
+    <main>
+        <div class="page-container">
+            <div class="category-title">
+                <h3><%= title %></h3>
+            </div>
+            <%- include("./partials/errors.ejs") %>
+            <form method="POST" action="/cat/new" class="new-form">
+                <div class="new-input-container">
+                    <label for="category">Category: </label>
+                    <select name="category" id="category">
+                        <option value="1">Bourbon</option>
+                        <option value="2">Scotch</option>
+                        <option value="3">Whisky</option>
+                        <option value="4">Agave</option>
+                        <option value="5">Rum</option>
+                        <option value="6">Cognac</option>
+                    </select>
+                </div>
+                <div class="new-input-container">
+                    <label for="itemName">Item Name: </label>
+                    <input type="text" name="itemName" id="itemName">
+                </div>
+                <div class="new-input-container">
+                    <label for="proof">Proof: </label>
+                    <input type="text" name="proof" id="proof">
+                </div>
+                <div class="new-input-container">
+                    <label for="quantity">Quantity: </label>
+                    <input type="number" name="quantity" id="quantity">
+                </div>
+                <div class="new-input-container">
+                    <label for="rating">Rating: </label>
+                    <input type="text" name="rating" id="rating">
+                </div>
+                <div class="new-input-container">
+                    <label for="notes">Notes (Optional): </label>
+                    <textarea type="text" name="notes" id="notes" placeholder="Max 180 characters"></textarea>
+                </div>
+                <button type="submit" class="submit-button">Add Item</button>
+            </form>
+        </div>
+    </main>
+    <%- include("./partials/footer.ejs") %>
+</body>
+</html>
