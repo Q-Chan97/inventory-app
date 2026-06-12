@@ -239,6 +239,45 @@ p, h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Forms */
+.new-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    border: 2px solid #2d160e;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    gap: 15px;
+    align-self: center;
+}
+
+.new-form label {
+    font-weight: bold;
+}
+
+.new-form input {
+    text-align: center;
+}
+
+.new-form textarea {
+    resize: none;
+    height: 150px;
+}
+
+.new-input-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit-button {
+    color: white;
+    background-color: #6a3422;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
 /* Footer */
 
 .footer {
