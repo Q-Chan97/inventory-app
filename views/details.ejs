@@ -15,6 +15,14 @@
             <div class="category-title">
                 <h3><%= item.name %></h3>
             </div>
+            <div class="options-container">
+                <a href="/cat/<%= category %>/<%= item.id %>/update" class="details-button edit">
+                    Edit Item
+                </a>
+                <button class="details-button delete">
+                    Delete Item
+                </button>
+            </div>
             <article class="details-container">
                 <div class="details-image">
                     <img src="/images/bottle.jpg" alt="bottle image">
