@@ -374,6 +374,19 @@ p, h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
+/* Delete View */
+.delete-options-container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 50px;
+    margin: 20px; 
+}
+
+.del-return-button {
+    background-color: #8B7355;
+}
+
 /* Footer */
 
 .footer {
