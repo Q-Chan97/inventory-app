@@ -1,5 +1,5 @@
 import Router from "express";
-import { categoryPath, newItemFormPath } from "../controllers/categoryController.js";
+import { categoryPath, getDetails, newItemFormPath } from "../controllers/categoryController.js";
 
 const categoryRouter = Router();
 
@@ -9,6 +9,7 @@ categoryRouter.get("/new", (req, res) => {
     res.render("newItem", {title: "New Item"})
 });
 
+categoryRouter.get("/:category/:itemId", getDetails);
 categoryRouter.get("/:category", categoryPath);
 
 export default categoryRouter;
