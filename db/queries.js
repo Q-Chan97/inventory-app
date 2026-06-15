@@ -22,3 +22,7 @@ export async function findItem(id) {
 export async function editItem(id, category, itemName, quantity, rating, notes, proof) {
     await pool.query('UPDATE inventory SET category_id = $2, name = $3, quantity = $4, rating = $5, notes = $6, proof = $7 WHERE inventory.id = $1', [id, category, itemName, quantity, rating, notes, proof] )
 }
+
+export async function deleteItem(id) {
+    await pool.query('DELETE FROM inventory WHERE id = $1', [id])
+}
