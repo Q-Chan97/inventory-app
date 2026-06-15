@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <a href="/">Home</a>
+    <%- include("./partials/header.ejs") %>
+    <main>
+        <div class="page-container">
+            <div class="category-title">
+                <h3>404 - Page not found!</h3>
+            </div>
+            <a class="error" href="/">Click here to return to the home page</a>
+        </div>
+    </main>
+    <%- include("./partials/footer.ejs") %>
 </body>
 </html>
