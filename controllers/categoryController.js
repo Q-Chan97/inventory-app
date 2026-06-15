@@ -1,6 +1,6 @@
 import { body, validationResult, matchedData } from "express-validator";
 
-import { addNewItem, getCategoryNameById, selectInventoryFromCategory } from "../db/queries.js";
+import { addNewItem, getCategoryNameById, selectInventoryFromCategory, findItem } from "../db/queries.js";
 
 export async function categoryPath(req, res) {
     const { category } = req.params;
@@ -12,7 +12,7 @@ export async function categoryPath(req, res) {
 
     const inventory = await selectInventoryFromCategory(category);
 
-    res.render("categoryView", {title: catTitle, inventory: inventory})
+    res.render("categoryView", {title: catTitle, inventory: inventory, catLink: category})
 }
 
 const validateNewItem = [
@@ -57,4 +57,14 @@ export function newItemFormPath() {
             res.redirect(`/cat/${catName}`);
         }
     ]
+}
+
+export async function getDetails(req, res) {
+    const { itemId } = req.params;
+
+    const item = await findItem(itemId);
+
+    const catName = await getCategoryNameById(item.category_id);
+
+    res.render("details", {title: item.name, item: item, category: catName});
 }
