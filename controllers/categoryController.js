@@ -1,6 +1,6 @@
 import { body, validationResult, matchedData } from "express-validator";
 
-import { addNewItem, getCategoryNameById, selectInventoryFromCategory, findItem, editItem } from "../db/queries.js";
+import { addNewItem, getCategoryNameById, selectInventoryFromCategory, findItem, editItem, deleteItem } from "../db/queries.js";
 
 export async function categoryPath(req, res) {
     const { category } = req.params;
@@ -92,4 +92,16 @@ export function updateItemFormPath() {
             res.redirect(`/cat/${catName}/${itemId}`);
         }
     ]
+}
+
+export async function deleteItemPath(req, res) {
+    const { itemId } = req.params;
+
+    const item = await findItem(itemId);
+
+    const catName = await getCategoryNameById(item.category_id);
+
+    await deleteItem(itemId);
+
+    res.redirect(`/cat/${catName}`);
 }
