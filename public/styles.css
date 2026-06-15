@@ -170,6 +170,22 @@ p, h1, h2, h3, h4, h5, h6 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.item-anchor {
+    text-decoration: none;
+    color: black
+}
+
+.info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.r-l-pos {
+    margin-left: auto;
+}
+
 .cat-bottle-image-container {
     width: 75px;
     filter: grayscale(20%);
@@ -182,6 +198,10 @@ p, h1, h2, h3, h4, h5, h6 {
     border-radius: 15px;
     padding: 10px;
 
+}
+
+.details-link {
+    margin-left: auto;
 }
 
 .row {
@@ -199,7 +219,6 @@ p, h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     justify-content: space-between;
     font-size: 1rem;
-    margin-right: auto;
     margin-left: 0.4rem;
 }
 
@@ -215,18 +234,16 @@ p, h1, h2, h3, h4, h5, h6 {
         width: 90%;
     }
 
-    .info-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        font-size: 1.3rem;
-    }
-
     .item-container {
         max-width: fit-content;
     }
 
+    .info-container {
+        align-self: flex-start;
+    }
+
     .info {
+        margin: 0;
         font-size: 1.3rem;
     }
 
@@ -236,6 +253,11 @@ p, h1, h2, h3, h4, h5, h6 {
 
     .item-container {
         flex-direction: column;
+    }
+
+    .r-l-pos {
+        margin-left: 0;
+        margin-right: auto;
     }
 }
 
@@ -276,6 +298,55 @@ p, h1, h2, h3, h4, h5, h6 {
     border: none;
     border-radius: 15px;
     padding: 5px 10px;
+}
+
+/* Details */
+.details-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.details-image {
+    display: flex;
+    align-self: center;
+    width: 90%;
+}
+
+.details-image img {
+    margin: auto;
+}
+
+.details-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 10px;
+    border-bottom: 1px solid #2d160e;
+}
+
+.details-notes {
+    display: flex;
+    align-items: center;
+    border: 2px solid #2d160e;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    font-weight: bold;
+}
+
+.details-button {
+    text-decoration: none;
+    text-align: center;
+    border-radius: 15px;
+    width: 200px;
+}
+
+.return {
+    background-color: #6a3422;
+    color: white;
+    padding: 8px 20px;
+    align-self: center;
 }
 
 /* Footer */
