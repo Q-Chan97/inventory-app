@@ -2,7 +2,7 @@ import { body, validationResult, matchedData } from "express-validator";
 
 import { addNewItem, getCategoryNameById, selectInventoryFromCategory, findItem, editItem, deleteItem } from "../db/queries.js";
 
-export async function categoryPath(req, res) {
+export async function categoryPath(req, res, next) {
     const { category } = req.params;
 
     function capitalize(cat) {
@@ -12,6 +12,10 @@ export async function categoryPath(req, res) {
 
     const inventory = await selectInventoryFromCategory(category);
 
+    if (!inventory.length) {
+        return res.status(404).render("404Page");
+    }
+
     res.render("categoryView", {title: catTitle, inventory: inventory, catLink: category})
 }
 
@@ -19,16 +23,18 @@ const validateNewItem = [
     body("category")
         .isInt()
         .toInt(),
-    body("itemName").trim(),
+    body("itemName")
+        .notEmpty().withMessage("Item needs a name")
+        .trim(),
     body("quantity")
-        .isInt()
+        .isInt().withMessage("Item needs a quantity")
         .toInt(),
     body("rating")
         .optional()
         .isNumeric()
         .toFloat(),
     body("proof")
-        .isNumeric()
+        .isNumeric().withMessage("Item needs proof")
         .isLength({max: 6})
         .toFloat(),
     body("notes").trim()
