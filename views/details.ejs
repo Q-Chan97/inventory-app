@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="icon" href="/icons/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include("./partials/header.ejs") %>
+    <main>
+        <div class="page-container">
+            <div class="category-title">
+                <h3><%= item.name %></h3>
+            </div>
+            <article class="details-container">
+                <div class="details-image">
+                    <img src="/images/bottle.jpg" alt="bottle image">
+                </div>
+                <div class="details-row">
+                    <p><%= item.proof %> proof</p>
+                    <div class="row">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M240-120v-80h200v-200L120-760v-80h720v80L520-400v200h200v80H240Zm58-560h364l72-80H226l72 80Z"/></svg>
+                        <p><%= item.quantity %></p>
+                    </div>
+                    <% if (item.rating) { %>
+                        <div class="row">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="m233-120 93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Z"/></svg>
+                            <p><%= item.rating %></p>
+                        </div>
+                    <% } %>
+                </div>
+                <% if (item.notes) { %>
+                    <div class="details-notes">
+                    <p><%= item.notes %></p>
+                </div>
+                <% } %>
+            </article>
+            <a class="details-button return" href="/cat/<%= category %>">Return</a>
+        </div>
+    </main>
+    <%- include("./partials/footer.ejs") %>
+</body>
+</html>
