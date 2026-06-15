@@ -1,6 +1,6 @@
 import { body, validationResult, matchedData } from "express-validator";
 
-import { addNewItem, getCategoryNameById, selectInventoryFromCategory, findItem } from "../db/queries.js";
+import { addNewItem, getCategoryNameById, selectInventoryFromCategory, findItem, editItem } from "../db/queries.js";
 
 export async function categoryPath(req, res) {
     const { category } = req.params;
@@ -67,4 +67,29 @@ export async function getDetails(req, res) {
     const catName = await getCategoryNameById(item.category_id);
 
     res.render("details", {title: item.name, item: item, category: catName});
+}
+
+export function updateItemFormPath() {
+    return [
+        validateNewItem,
+        async (req, res) => {
+            const errors = validationResult(req);
+                if (!errors.isEmpty()) {
+                    return res.status(400).render("updateItem", {
+                        title: "Update Item",
+                        errors: errors.array(),
+                        formData: req.body
+                    });
+                };
+        
+            const { itemId } = req.params
+        
+            const { category, itemName, quantity, rating, notes, proof } = matchedData(req);
+
+            await editItem(itemId, category, itemName, quantity, rating, notes, proof);
+
+            const catName = await getCategoryNameById(category);
+            res.redirect(`/cat/${catName}/${itemId}`);
+        }
+    ]
 }
