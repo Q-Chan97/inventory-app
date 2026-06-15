@@ -394,3 +394,11 @@ p, h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     padding: 20px;
 }
+
+/* Error */
+.error {
+    display: flex;
+    align-self: center;
+    margin: 20px;
+    color: #6a3422;
+}
