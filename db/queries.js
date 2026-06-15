@@ -13,3 +13,8 @@ export async function getCategoryNameById(id) {
 export async function addNewItem(category, itemName, quantity, rating, notes, proof) {
     await pool.query('INSERT INTO inventory (category_id, name, quantity, rating, notes, proof) VALUES ($1, $2, $3, $4, $5, $6)', [category, itemName, quantity, rating, notes, proof])
 }
+
+export async function findItem(id) {
+    const { rows } = await pool.query('SELECT * FROM inventory WHERE id = $1', [id]);
+    return rows[0];
+}
