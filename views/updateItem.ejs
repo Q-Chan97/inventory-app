@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Item</title>
+    <link rel="icon" href="/icons/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include("./partials/header.ejs") %>
+    <main>
+        <div class="page-container">
+            <div class="category-title">
+                <h3><%= title %></h3>
+            </div>
+            <%- include("./partials/errors.ejs") %>
+            <form method="POST" action="/cat/<%= catLink %>/<%= item.id %>/update" class="new-form">
+                <div class="new-input-container">
+                    <label for="category">Category: </label>
+                    <select name="category" id="category">
+                        <option value="1" <%= item.category_id === 1 ? "selected" : "" %>>Bourbon</option>
+                        <option value="2" <%= item.category_id === 2 ? "selected" : "" %>>Scotch</option>
+                        <option value="3" <%= item.category_id === 3 ? "selected" : "" %>>Whisky</option>
+                        <option value="4" <%= item.category_id === 4 ? "selected" : "" %>>Agave</option>
+                        <option value="5" <%= item.category_id === 5 ? "selected" : "" %>>Rum</option>
+                        <option value="6" <%= item.category_id === 6 ? "selected" : "" %>>Cognac</option>
+                    </select>
+                </div>
+                <div class="new-input-container">
+                    <label for="itemName">Item Name: </label>
+                    <input type="text" name="itemName" id="itemName" value="<%= item.name %>">
+                </div>
+                <div class="new-input-container">
+                    <label for="proof">Proof: </label>
+                    <input type="text" name="proof" id="proof" value="<%= item.proof %>">
+                </div>
+                <div class="new-input-container">
+                    <label for="quantity">Quantity: </label>
+                    <input type="number" name="quantity" id="quantity" value="<%= item.quantity %>">
+                </div>
+                <div class="new-input-container">
+                    <label for="rating">Rating: </label>
+                    <input type="text" name="rating" id="rating" value="<%= item.rating %>">
+                </div>
+                <div class="new-input-container">
+                    <label for="notes">Notes (Optional): </label>
+                    <textarea type="text" name="notes" id="notes" ><%= item.notes %></textarea>
+                </div>
+                <button type="submit" class="submit-button">Update Item</button>
+            </form>
+        </div>
+    </main>
+    <%- include("./partials/footer.ejs") %>
+</body>
+</html>
