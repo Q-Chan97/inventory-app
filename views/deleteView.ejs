@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Item</title>
+    <link rel="icon" href="/icons/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include("./partials/header.ejs") %>
+    <main>
+        <div class="page-container">
+            <div class="category-title">
+                <h3><%= title %></h3>
+            </div>
+            <div class="delete-options-container">
+                <h3>Are you sure you want to delete this?</h3>
+                <div class="row">
+                    <a class="details-button del-return-button" href="/cat/<%= catLink %>/<%= item.id %>">Go back</a>
+                    <form method="POST" action="/cat/<%= catLink %>/<%= item.id %>/delete">
+                        <button class="details-button delete" type="submit">Yes, Delete this</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include("./partials/footer.ejs") %>
+</body>
+</html>
