@@ -18,3 +18,7 @@ export async function findItem(id) {
     const { rows } = await pool.query('SELECT * FROM inventory WHERE id = $1', [id]);
     return rows[0];
 }
+
+export async function editItem(id, category, itemName, quantity, rating, notes, proof) {
+    await pool.query('UPDATE inventory SET category_id = $2, name = $3, quantity = $4, rating = $5, notes = $6, proof = $7 WHERE inventory.id = $1', [id, category, itemName, quantity, rating, notes, proof] )
+}
